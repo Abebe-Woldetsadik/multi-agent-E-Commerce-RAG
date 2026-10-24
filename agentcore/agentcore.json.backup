@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schema.agentcore.aws.dev/v1/agentcore.json",
+  "name": "udacity",
+  "version": 1,
+  "managedBy": "CDK",
+  "tags": {
+    "agentcore:created-by": "agentcore-cli",
+    "agentcore:project-name": "udacity"
+  },
+  "runtimes": [
+    {
+      "name": "agentcore_runtime",
+      "description": "NovaMart multi-agent customer support system (Strands Agents on AgentCore Runtime)",
+      "build": "CodeZip",
+      "entrypoint": "agent_orchestrator.py",
+      "codeLocation": "build/runtime/",
+      "runtimeVersion": "PYTHON_3_12",
+      "networkMode": "PUBLIC",
+      "protocol": "HTTP",
+      "instrumentation": {
+        "enableOtel": false
+      },
+      "executionRoleArn": "arn:aws:iam::099941009793:role/udacity-agentcore-agentcore-role",
+      "envVars": [
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-1"
+        },
+        {
+          "name": "PROJECT_NAME",
+          "value": "udacity-agentcore"
+        },
+        {
+          "name": "RETURNS_KB_ID",
+          "value": "GEIXVZEGWR"
+        },
+        {
+          "name": "SHIPPING_KB_ID",
+          "value": "MDRSRMQSN4"
+        },
+        {
+          "name": "WARRANTY_KB_ID",
+          "value": "JHZFBZPWR8"
+        },
+        {
+          "name": "AGENT_LOG_GROUP",
+          "value": "/aws/bedrock/agentcore/udacity-agentcore"
+        },
+        {
+          "name": "GUARDRAIL_ID",
+          "value": "s0gci7dkn08q"
+        },
+        {
+          "name": "GUARDRAIL_VERSION",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "memories": [],
+  "knowledgeBases": [],
+  "credentials": [],
+  "evaluators": [],
+  "onlineEvalConfigs": [],
+  "agentCoreGateways": [],
+  "policyEngines": [],
+  "configBundles": [],
+  "abTests": [],
+  "harnesses": [],
+  "datasets": [],
+  "capacityProviders": [],
+  "payments": []
+}
